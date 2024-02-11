@@ -57,7 +57,14 @@ function getdetails(searchKeyword) {
 
 //render photos to DOM
 function renderDetails (photos) {
-    let classStatus;
+    let getUrls='';
+    if (photos.length <= 0) {
+        getUrls = `<div class="nothing-to-display">
+            <h2>Nothing to display</h2>
+    </div>`
+    }
+    else {
+        let classStatus;
      if (favorite.length > 0) {
          favorite.forEach(i => {
             photos.forEach(j => {
@@ -68,18 +75,21 @@ function renderDetails (photos) {
             })
          })
      }
-    const getUrls = photos.map(i => {
-        if (i.isfavorite === true){
-            classStatus = 'active';
-        } else {
-            classStatus = 'inactive';
-        }
-        return `<div class="photo-display">
-        <img class="images" id=${i.id} src="${i.urls.regular}"/>
-        <p class="heart ${classStatus}" id=${i.id}>${blackHeart}</p>
-        </div>`;
+    getUrls = photos.map(i => {
+            if (i.isfavorite === true){
+                classStatus = 'active';
+            } else {
+                classStatus = 'inactive';
+            }
+            return `<div class="photo-display">
+                <img class="images" id=${i.id} src="${i.urls.regular}"/>
+                <p class="heart ${classStatus}" id=${i.id}>${blackHeart}</p>
+            </div>`;
+
     });
-    content.innerHTML = getUrls.join('');
+    getUrls = getUrls.join('');
+    }
+    content.innerHTML = getUrls;
     attacheventlistener();
 }
 

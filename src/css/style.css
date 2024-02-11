@@ -96,9 +96,6 @@ img {
 #footer {
   background-color: rgb(177, 163, 163);
   width: 100%;
-  /* left:0;
-  right: 0;
-  bottom:0; */
   text-align: center;
   color: white;
   padding: 10px;
@@ -148,4 +145,48 @@ img {
   font-weight: bold;
   border: none;
 }
+
+@media all and (max-width:800px) {
+  .photo-display .heart {
+    position: absolute;
+    padding: 0;
+    margin:0;
+    bottom: 1rem;
+    font-size: 2rem;
+  }
+}
+
+.nothing-to-display {
+  justify-content: center;
+  grid-area: 2 / 2 / 3/ 4;
+}
+
+.nothing-to-display h2 {
+  display : flex;
+  justify-content: space-around;
+  height: 15vw;
+}
+
+@media all and (max-width:640px) {
+  .photo-display .heart {
+    bottom: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media all and (max-width:480px) {
+  .photo-display .heart {
+    bottom: 0.5rem;
+    font-size: 0.5rem;
+  }
+  
+  #menuButtons {  
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .nothing-to-display h2 {
+    font-size: 15px;
+  }
+}
+
 
