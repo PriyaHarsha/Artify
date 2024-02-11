@@ -1,5 +1,4 @@
 ## Artify | Art Gallery APP using HTML, CSS and JS
----
 
 This repository contains an Art Gallery app built using HTML, CSS and JavaScript.
 
@@ -17,4 +16,6 @@ This repository contains an Art Gallery app built using HTML, CSS and JavaScript
 ###Instructions
 
 1. Clone the repo and run ``npm install``
-2. To set up development server run ``npm dev`` 
+2. To set up development server run ``npm dev``
+
+---
