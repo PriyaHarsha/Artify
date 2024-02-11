@@ -1,7 +1,7 @@
 import { createApi } from 'unsplash-js';
 import { saveToStorage, getFromStorage } from './localStorage';
 import { RenderMenu } from './renderMenu';
-import { RenderInformation } from './RenderInformation';
+import { ShowDetails } from './ShowDetails';
 import { ToggleStatus } from './ToggleStatus';
 
 //initialize
@@ -17,23 +17,17 @@ const unsplash = createApi({
     accessKey: 'iAsMitWEByhYlU4YoiImNcRGeOGrlilLU09fFwBmHmY',
 });
 
-//Create menu buttons
+//Create menu buttons and attach listner
 RenderMenu({menuList});
-
-//create event listner for each menu button
 const allButtons = document.querySelectorAll("button");
 allButtons.forEach ((button) => {
     button.addEventListener('click', (button) => {
         getdetails(button.target.innerText)});
 });
 
-//Display Modren Art when the page loads up
-getdetails("Modren Art");
 
-
-
-//function to get photos from API and to display them on document
-function getdetails(searchKeyword) {
+//to get photos from API and to display them on document
+async function getdetails(searchKeyword) {
 
     if (searchKeyword === "Favorite"){
         flag = false;
@@ -41,7 +35,7 @@ function getdetails(searchKeyword) {
 
         } else {
             flag = true;
-            unsplash.search.getPhotos({
+            await  unsplash.search.getPhotos({
                 query: searchKeyword,
                 page: 1,
                 perPage: 16,
@@ -55,18 +49,21 @@ function getdetails(searchKeyword) {
             }
     }
 
+//Display Modren Art when the page loads up
+getdetails("Modren Art");
+
 //render photos to DOM
 function renderDetails (photos) {
     let getUrls='';
     if (photos.length <= 0) {
         getUrls = `<div class="nothing-to-display">
             <h2>Nothing to display</h2>
-    </div>`
+            </div>`
     }
     else {
         let classStatus;
-     if (favorite.length > 0) {
-         favorite.forEach(i => {
+        if (favorite.length > 0) {
+            favorite.forEach(i => {
             photos.forEach(j => {
                 if (i.id === j.id)
                 {
@@ -74,8 +71,8 @@ function renderDetails (photos) {
                 }
             })
          })
-     }
-    getUrls = photos.map(i => {
+        }
+        getUrls = photos.map(i => {
             if (i.isfavorite === true){
                 classStatus = 'active';
             } else {
@@ -84,34 +81,32 @@ function renderDetails (photos) {
             return `<div class="photo-display">
                 <img class="images" id=${i.id} src="${i.urls.regular}"/>
                 <p class="heart ${classStatus}" id=${i.id}>${blackHeart}</p>
-            </div>`;
+                </div>`;
 
-    });
-    getUrls = getUrls.join('');
+        });
+        getUrls = getUrls.join('');
     }
     content.innerHTML = getUrls;
     attacheventlistener();
+    
 }
 
-//attach event listner to hearts once loaded
+//attach event listner to heart buttons and images
 function attacheventlistener () {
-    const hearts = document.querySelectorAll(".heart");
+    const hearts = document.querySelectorAll(".photo-display");
     hearts.forEach ((button) => {
     button.addEventListener('click', (e) =>{
-        const selectedHeart = ToggleStatus(e.target);
-        if (selectedHeart.classList[1] === "active") {
-            addTOFavorite(selectedHeart.id);
+        if (e.target.classList[0] === "heart") {
+            const selectedHeart = ToggleStatus(e.target);
+            selectedHeart.classList[1] === "active" ? 
+                    addTOFavorite(selectedHeart.id) : 
+                    removeFromFavorite(selectedHeart.id);
         } else {
-            removeFromFavorite(selectedHeart.id);
+             const home = ShowDetails(e.target.id , photos, favorite, flag);  
+             home.addEventListener('click', () => {flag ? renderDetails(photos) : renderDetails(favorite)});   
         }
     });
     });
-    const images = document.querySelectorAll(".images");
-    images.forEach((image) => {
-        image.addEventListener('click', (e) => showDetails(e.target.id));
-        
-    })
-
 }
 
 //Add to Favorite
@@ -131,22 +126,4 @@ function removeFromFavorite (id) {
     const removed = favorite.splice(index, 1);
     saveToStorage(favorite);
     flag ? null : renderDetails(favorite);
-}
-
-
-//Show Details of the image
-function showDetails (id) {
-    let displayData=[];
-    let index = photos.findIndex(i => i.id === id);
-    if (index > -1){
-        displayData = photos[index];
-    } else {
-       index= favorite.findIndex(i => i.id === id);
-       displayData = favorite[index];
-    }
-    const contentToBeRendered = RenderInformation({displayData});
-    content.innerHTML = contentToBeRendered;
-
-    const home = document.querySelector(".homeButton");
-    home.addEventListener('click', () => {flag ? renderDetails(photos) : renderDetails(favorite);});
 }

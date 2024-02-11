@@ -4,7 +4,6 @@ export const RenderMenu = function ({menuList}) {
     menuButton = `<button class="buttons">${menuButton}</button>` ;
     menuButtons += menuButton;
     });
-
     document.getElementById('menuButtons').innerHTML = menuButtons;
 }
 
