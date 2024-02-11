@@ -1,12 +1,27 @@
 ## Artify | Art Gallery APP using HTML, CSS and JS
 
-This is the project on Art Gallery App, this app displays the different types of arts images and user can add them to favorite using the heart icon, also one can check the details of art by clicking on it.
+This repository contains an Art Gallery app built using HTML, CSS and JavaScript.
 
-- `src/index.html` : This is the root HTML document
-- `src/js/index.js`: This is the main JavaScript file which is imported into the HTML document. It includes the JavaScript code to acces images from the Unsplash API and to render them on the screen.
-- `src/css/style.css`: This is the main stylesheet of the project, it contains all the neccesary styles for the project.
-- `src/assets`: This folder contains the logo image of the project.
+**Features**
+1.  Modren Art
+2.  Abstrct Art
+3.  Classic Art
+4.  Cubism Art
+5.  Sculpture Art
+6.  Add to Favorite
+7.  remove from Favorite
 
-**Instructions**
+[Working Demo] (https://priyaharsha.github.io/Artify/)
 
-- **Development** : Run `npm run dev` - This will start the development server and open the app in the default browser.
+### Instructions
+
+1. Clone the repo and run ``npm install``
+2. To set up development server run ``npm dev``
+
+---
+- ```src/index.html``` : This is the root HTML document
+- ```src/js/index.js```: This is the main JavaScript file which is imported into the HTML document. You can directly start building the application here.
+- ```src/css/style.css```: This is the main stylesheet. 
+- ```src/api/assets```: This folder contains all the related assests of this app.
+- ```src/api/localStorage.js```: This is a Javascript file which stores and retreive the data to/from local Storage.
+---
