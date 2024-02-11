@@ -23,5 +23,5 @@ This repository contains an Art Gallery app built using HTML, CSS and JavaScript
 - ```src/js/index.js```: This is the main JavaScript file which is imported into the HTML document. You can directly start building the application here.
 - ```src/css/style.css```: This is the main stylesheet. 
 - ```src/api/assets```: This folder contains all the related assests of this app.
-  - ```src/api/localStorage.js```: This is a Javascript file which stores and retreive the data to/from local Storage.
+- ```src/api/localStorage.js```: This is a Javascript file which stores and retreive the data to/from local Storage.
 ---
