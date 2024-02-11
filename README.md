@@ -9,4 +9,5 @@ This is the project on Art Gallery App, this app displays the different types of
 
 **Instructions**
 
-- **Development** : Run `npm run dev` - This will start the development server and open the app in the default browser.
+- Adding Images to favorite: User can click on white heart icon shown on the image to add them to the favorite list.
+- Removing Images from favorite: User can click on red heart icon to remove them from the favorite list.
