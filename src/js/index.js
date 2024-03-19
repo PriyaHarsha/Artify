@@ -20,6 +20,9 @@ const unsplash = createApi({
 //Create menu buttons
 RenderMenu({menuList});
 
+//Display Modren Art when the page loads up
+getdetails("Modren Art");
+
 //create event listner for each menu button
 const allButtons = document.querySelectorAll("button");
 allButtons.forEach ((button) => {
@@ -27,8 +30,7 @@ allButtons.forEach ((button) => {
         getdetails(button.target.innerText)});
 });
 
-//Display Modren Art when the page loads up
-getdetails("Modren Art");
+
 
 
 

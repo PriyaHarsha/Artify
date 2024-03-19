@@ -17,6 +17,7 @@
     "workerDirectory": "src/public"
   },
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "unsplash-js": "^7.0.19"
   }
 }
