@@ -19,6 +19,9 @@ const unsplash = createApi({
 
 
 
+//Display Modren Art when the page loads up
+getdetails("Modren Art");
+
 //Create menu buttons and attach listner
 RenderMenu({ menuList });
 const allButtons = document.querySelectorAll(".buttons");
@@ -28,8 +31,7 @@ allButtons.forEach((button) => {
     });
 });
 
-//Display Modren Art when the page loads up
-getdetails("Modren Art");
+
 
 
 const searchButton = document.querySelector(".searchButton");
