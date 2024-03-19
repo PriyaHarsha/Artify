@@ -146,6 +146,28 @@ img {
   border: none;
 }
 
+.searchMenu{
+  display:flex;
+  justify-content: space-between;
+}
+.searchButton {
+  margin: 2px;
+  font-size:16px;
+  border: none;
+  background-color: rgb(43, 226, 195);
+  color: rgb(53, 59, 110);
+  font-weight: bold;
+}
+.searchButton:hover {
+  background-color: lightblue;
+  color: white;
+  cursor: pointer;
+}
+.searchInput {
+  border: none;
+  background-color: rgb(227, 233, 235);
+}
+
 @media all and (max-width:800px) {
   .photo-display .heart {
     position: absolute;
