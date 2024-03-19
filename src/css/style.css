@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(210, 216, 173);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo{
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(53, 59, 110);
+}
+
+.logo img {
+  width: 4%;
+  height: 4%;
+  align-self: center;
+  padding: 10px;
+}
+
+#heading {
+  color:rgb(43, 226, 195);
+  margin: 0px;
+  
+}
+
+#menuButtons {
+  background-color: rgb(43, 226, 195);
+  width: 100%;  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.buttons {
+   margin: 2px;
+   font-size:16px;
+   border: none;
+   background-color: rgb(43, 226, 195);
+   color: rgb(53, 59, 110);
+   font-weight: bold;
+}
+
+.buttons:hover{
+  background-color: lightblue;
+  color: white;
+  cursor: pointer;
+}
+
+#content {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: start;
+}
+
+.photo-display {
+  position: relative;
+}
+
+img {
+  width: 100%;
+  height: 25vw;
+  object-fit:fill;
+  align-self: center;
+  box-shadow: 2px, 2px, 20px, grey;
+  border-radius: 10px;
+}
+
+.photo-display .heart {
+  position: absolute;
+  padding: 0;
+  margin:0;
+  bottom: 2rem;
+  font-size: 3rem;
+}
+
+#footer {
+  background-color: rgb(177, 163, 163);
+  width: 100%;
+  text-align: center;
+  color: white;
+  padding: 10px;
+}
+
+.active {
+    color: red;
+}
+
+.inactive {
+    color: white;
+}
+
+.photo-display .heart:hover {
+  cursor: pointer;
+}
+
+.highlight {
+  background-color: aquamarine;
+}
+
+.detailed-Display {
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: start;
+  grid-template-rows: 10% 90%;
+  margin: 1rem;
+  grid-gap: 0.5rem;
+}
+
+
+.display-image {
+  width : 100%;
+  height: 25vw;
+  grid-area: 2 / 1 / 3 / 2 ;
+}
+
+.description {
+  padding-left: 1rem;
+  grid-area: 2 / 2 / 3/ 4;
+}
+
+.homeButton {
+  background-color: rgb(210, 216, 173);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+}
+
+.searchMenu{
+  display:flex;
+  justify-content: space-between;
+}
+.searchButton {
+  margin: 2px;
+  font-size:16px;
+  border: none;
+  background-color: rgb(43, 226, 195);
+  color: rgb(53, 59, 110);
+  font-weight: bold;
+}
+.searchButton:hover {
+  background-color: lightblue;
+  color: white;
+  cursor: pointer;
+}
+.searchInput {
+  border: none;
+  background-color: rgb(227, 233, 235);
+}
+
+@media all and (max-width:800px) {
+  .photo-display .heart {
+    position: absolute;
+    padding: 0;
+    margin:0;
+    bottom: 1rem;
+    font-size: 2rem;
+  }
+}
+
+.nothing-to-display {
+  justify-content: center;
+  grid-area: 2 / 2 / 3/ 4;
+}
+
+.nothing-to-display h2 {
+  display : flex;
+  justify-content: space-around;
+  height: 15vw;
+}
+
+@media all and (max-width:640px) {
+  .photo-display .heart {
+    bottom: 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media all and (max-width:480px) {
+  .photo-display .heart {
+    bottom: 0.5rem;
+    font-size: 0.5rem;
+  }
+  
+  #menuButtons {  
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .nothing-to-display h2 {
+    font-size: 15px;
+  }
+}
+
+
